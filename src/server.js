@@ -2,6 +2,7 @@ import Hapi from 'hapi'
 import { createAppLocationRoutes } from './routes'
 
 const server = new Hapi.Server({
+	host: 'localhost',
 	port: 9000
 })
 
