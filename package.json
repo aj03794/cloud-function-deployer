@@ -1,0 +1,42 @@
+{
+  "name": "deploy-cloud-function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel src --out-dir temp",
+    "build": "rm -rf dist && babel src --copy-files --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "Adam Johnston",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.2.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ],
+      "transform-object-rest-spread",
+      "transform-async-to-generator"
+    ],
+    "presets": [
+      "env"
+    ]
+  }
+}
